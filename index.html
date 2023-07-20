@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Shopping.org</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tailwind.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="flex justify-between items-center w-full mx-auto px-4 md:px-8">
+            <div class="logo-container flex items-center">
+                <img class=" md:w-auto mx-auto md:mx-0 mt-2" src="https://i.postimg.cc/76vLGQ6b/logo.png" alt="Logo">
+                <div class="hidden md:flex md:ml-4">
+                    <form class="form-inline my-2 mx-10 my-lg-0">
+                        <input class="form-control outline-none bg-blue-300 p-2.5 rounded mr-sm-2" type="search"
+                            placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success bg-blue-300 rounded my-2 p-2.5 mx-2 my-sm-0"
+                            type="submit">Go</button>
+                    </form>
+                </div>
+            </div>
+            <div class="nav-links">
+                <ul class="flex text-blue-400 font-bold md:flex-row flex-col md:items-center md:gap-8 gap-4 mt-2">
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Profile</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Category</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Account</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Fashion</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Order</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex items-center gap-2">
+                <button id="add-to-cart" class="bg-red-600 py-2 mx-0 px-4 rounded text-white text-sm">Add to
+                    Cart</button>
+                <div class="quantity absolute mx-24 bg-red-300 rounded-xl w-6 text-center ">
+                    <span>0</span>
+                </div>
+                <svg id="cart-img" class="cursor-pointer mx-4 w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart">
+                    <circle cx="8" cy="21" r="1" />
+                    <circle cx="19" cy="21" r="1" />
+                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                </svg>
+            </div>
+            <div class="hidden transform translate-x-full transition-transform duration-500 ease-in-out" id="cart">
+                <div class="total-item" id="ct">
+                    <span>Total items</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="product-container mx-40 w-[80%] mt-10" id="item">
+        <div class="product-card" id="item1">
+            <div class="product-image">
+                <span class="discount-tag">20% off</span>
+                <img src="https://i.postimg.cc/Gpt8RQGd/mobile.jpg" class="product-thumb" alt="">
+                <input class="text-cyan-400" type="button" value="Add to Cart" onclick="add('item1')">
+            </div>
+            <div class="product-info">
+                <h2 class="product-brand">Smartphone</h2>
+                <p class="product-short-des">a short line about the cloth..</p>
+                <span class="price">$550</span><span class="actual-price">$480</span>
+                <div class="quantity-container flex items-center relative mx-32 -my-8">
+                    <button
+                        class="quantity-btn minus bg-gray-200 border border-gray-300 rounded-full p-2 text-lg font-bold">-</button>
+                    <span class="quantity mx-4 text-lg font-semibold">0</span>
+                    <button
+                        class="quantity-btn plus bg-gray-200 border border-gray-300 rounded-full p-2 text-lg font-bold">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" id="item2">
+            <div class="product-image">
+                <span class="discount-tag">40% off</span>
+                <img src="https://i.postimg.cc/wjpJJLJd/tablet.jpg" class="product-thumb" alt="">
+                <button onclick="add('item2')" class="card-btn">Add to Cart</button>
+            </div>
+            <div class="product-info">
+                <h2 class="product-brand">Tablet</h2>
+                <p class="product-short-des">a short line about the cloth..</p>
+                <span class="price">$600</span><span class="actual-price">$750</span>
+                <div class="quantity-container flex items-center relative mx-32 -my-8">
+                    <button
+                        class="quantity-btn minus bg-gray-200 border border-gray-300 rounded-full p-2 text-lg font-bold">-</button>
+                    <span class="quantity mx-4 text-lg font-semibold">0</span>
+                    <button
+                        class="quantity-btn plus bg-gray-200 border border-gray-300 rounded-full p-2 text-lg font-bold">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" id="item3">
+            <div class="product-image">
+                <span class="discount-tag">25% off</span>
+                <img src="https://i.postimg.cc/C5wTkvFq/furniture.jpg" class="product-thumb" alt="">
+                <button onclick="add('item3')" class="card-btn">Add to Cart</button>
+            </div>
+            <div class="product-info">
+                <h2 class="product-brand">furniture</h2>
+                <p class="product-short-des">a short line about the cloth..</p>
+                <span class="price">$2000</span><span class="actual-price">$3000</span>
+                <div class="quantity-container flex items-center relative mx-32 -my-8">
+                    <button
+                        class="quantity-btn minus bg-gray-200 border border-gray-300 rounded-full p-2 text-lg font-bold">-</button>
+                    <span class="quantity mx-4 text-lg font-semibold">0</span>
+                    <button
+                        class="quantity-btn plus bg-gray-200 border border-gray-300 rounded-full p-2 text-lg font-bold">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" id="item4">
+            <div class="product-image">
+                <span class="discount-tag">70% off</span>
+                <img src="https://i.postimg.cc/28Fd00C5/watch.jpg" class="product-thumb" alt="">
+                <button onclick="add('item4')" class="card-btn">Add to Cart</button>
+            </div>
+            <div class="product-info">
+                <h2 class="product-brand">Watch</h2>
+                <p class="product-short-des">a short line about the cloth..</p>
+                <span class="price">$450</span><span class="actual-price">$500</span>
+                <div class="quantity-container flex items-center relative mx-32 -my-8">
+                    <button
+                        class="quantity-btn minus bg-gray-200 border border-gray-300 rounded-full p-2 text-lg font-bold">-</button>
+                    <span class="quantity mx-4 text-lg font-semibold">0</span>
+                    <button
+                        class="quantity-btn plus bg-gray-200 border border-gray-300 rounded-full p-2 text-lg font-bold">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" id="item5">
+            <div class="product-image">
+                <span class="discount-tag">10% off</span>
+                <img src="https://i.postimg.cc/k4CygW5G/product.jpg" class="product-thumb" alt="">
+                <button onclick="add('item5')" class="card-btn">Add to Cart</button>
+            </div>
+            <div class="product-info">
+                <h2 class="product-brand">Clothing</h2>
+                <p class="product-short-des">a short line about the cloth..</p>
+                <span class="price">$20</span><span class="actual-price">$40</span>
+                <div class="quantity-container flex items-center relative mx-32 -my-8">
+                    <button
+                        class="quantity-btn minus bg-gray-200 border border-gray-300 rounded-full p-2 text-lg font-bold">-</button>
+                    <span class="quantity mx-4 text-lg font-semibold">0</span>
+                    <button
+                        class="quantity-btn plus bg-gray-200 border border-gray-300 rounded-full p-2 text-lg font-bold">+</button>
+                </div>
+            </div>
+        </div>
+        <button class="btn nxt-btn">Next</button>
+        <button class="btn pre-btn">Previous</button>
+    </div>
+
+    <section class="collection-container mt-20">
+        <a href="#" class="collection">
+            <img src="https://i.postimg.cc/HL5Z6pKG/women.jpg" alt="">
+            <p class="collection-title">women <br> apparels</p>
+        </a>
+        <a href="#" class="collection">
+            <img src="https://i.postimg.cc/m2BPD8R7/men.jpg" alt="">
+            <p class="collection-title">men <br> apparels</p>
+        </a>
+        <a href="#" class="collection mt-10">
+            <img src="https://i.postimg.cc/FKQ85d0F/acc.jpg" alt="">
+            <p class="collection-title">accessories</p>
+        </a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-ul-container">
+                <ul class="category">
+                    <li class="category-title">men</li>
+                    <li><a href="#" class="footer-link">t-shirts</a></li>
+                    <li><a href="#" class="footer-link">sweatshirts</a></li>
+                    <li><a href="#" class="footer-link">shirts</a></li>
+                    <li><a href="#" class="footer-link">jeans</a></li>
+                    <li><a href="#" class="footer-link">trousers</a></li>
+                    <li><a href="#" class="footer-link">shoes</a></li>
+                    <li><a href="#" class="footer-link">casuals</a></li>
+                    <li><a href="#" class="footer-link">formals</a></li>
+                    <li><a href="#" class="footer-link">sports</a></li>
+                    <li><a href="#" class="footer-link">watch</a></li>
+                </ul>
+                <ul class="category">
+                    <li class="category-title">women</li>
+                    <li><a href="#" class="footer-link">t-shirts</a></li>
+                    <li><a href="#" class="footer-link">sweatshirts</a></li>
+                    <li><a href="#" class="footer-link">shirts</a></li>
+                    <li><a href="#" class="footer-link">jeans</a></li>
+                    <li><a href="#" class="footer-link">trousers</a></li>
+                    <li><a href="#" class="footer-link">shoes</a></li>
+                    <li><a href="#" class="footer-link">casuals</a></li>
+                    <li><a href="#" class="footer-link">formals</a></li>
+                    <li><a href="#" class="footer-link">sports</a></li>
+                    <li><a href="#" class="footer-link">watch</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+
+</html>
