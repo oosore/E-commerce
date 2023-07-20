@@ -58,13 +58,13 @@ function toggleCart() {
   }
 }
 
-var x=0;
-document.getElementById("ct").innerText=x;
+// var x=0;
+// document.getElementById("ct").innerText=x;
 
-function add(val) {
-document.getElementById("item").innerHTML; += val;
- x=x+1;
+// function add(val) {
+// document.getElementById("item").innerHTML; += val;
+//  x=x+1;
 
-document.getElementById("ct").innerText=x;
+// document.getElementById("ct").innerText=x;
 
-}
+// }
