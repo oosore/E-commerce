@@ -56,7 +56,7 @@
             <div class="flex items-center gap-2">
                 <button id="add-to-cart" class="bg-red-600 py-2 mx-0 px-4 rounded text-white text-sm">Add to
                     Cart</button>
-                <div class="quantity absolute mx-24 bg-red-300 rounded-xl w-6 text-center ">
+                <div class="quantity absolute mx-24 bg-red-300 rounded-xl w-6 text-center" id="item-count">
                     <span>0</span>
                 </div>
                 <svg id="cart-img" class="cursor-pointer mx-4 w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -67,7 +67,8 @@
                     <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
                 </svg>
             </div>
-            <div class="hidden transform translate-x-full transition-transform duration-500 ease-in-out" id="cart">
+            <div class="hidden transform translate-x-full transition-transform duration-500 ease-in-out overflow-x-hidden"
+                id="cart">
                 <div class="total-item" id="ct">
                     <span>Total items</span>
                 </div>
@@ -81,7 +82,7 @@
             <div class="product-image">
                 <span class="discount-tag">20% off</span>
                 <img src="https://i.postimg.cc/Gpt8RQGd/mobile.jpg" class="product-thumb" alt="">
-                <button onclick="add('item1')" class="card-btn">Add to Cart</button>
+                <button class="card-btn" onclick="handleClick('item1', 'Smartphone', 480)">Add to Cart</button>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Smartphone</h2>
@@ -100,7 +101,7 @@
             <div class="product-image">
                 <span class="discount-tag">40% off</span>
                 <img src="https://i.postimg.cc/wjpJJLJd/tablet.jpg" class="product-thumb" alt="">
-                <button onclick="add('item2')" class="card-btn">Add to Cart</button>
+                <button class="card-btn" onclick="handleClick('item2', 'Tablet', 500)">Add to Cart</button>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Tablet</h2>
@@ -119,7 +120,7 @@
             <div class="product-image">
                 <span class="discount-tag">25% off</span>
                 <img src="https://i.postimg.cc/C5wTkvFq/furniture.jpg" class="product-thumb" alt="">
-                <button onclick="add('item3')" class="card-btn">Add to Cart</button>
+                <button class="card-btn" onclick="handleClick('item3', 'furniture', 500)">Add to Cart</button>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">furniture</h2>
@@ -138,7 +139,7 @@
             <div class="product-image">
                 <span class="discount-tag">70% off</span>
                 <img src="https://i.postimg.cc/28Fd00C5/watch.jpg" class="product-thumb" alt="">
-                <button onclick="add('item4')" class="card-btn">Add to Cart</button>
+                <button class="card-btn" onclick="handleClick('item4', 'Watch', 500)">Add to Cart</button>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Watch</h2>
@@ -157,7 +158,7 @@
             <div class="product-image">
                 <span class="discount-tag">10% off</span>
                 <img src="https://i.postimg.cc/k4CygW5G/product.jpg" class="product-thumb" alt="">
-                <button onclick="add('item5')" class="card-btn">Add to Cart</button>
+                <button class="card-btn" onclick="handleClick('item5', 'Clothing', 500)">Add to Cart</button>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Clothing</h2>
@@ -174,6 +175,8 @@
         </div>
         <button class="btn nxt-btn">Next</button>
         <button class="btn pre-btn">Previous</button>
+        <div id="cart">
+        </div>
     </div>
 
     <section class="collection-container mt-20">
