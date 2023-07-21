@@ -20,6 +20,7 @@ body {
 }
 
 #cart {
+    flex-direction: column;
     top: 10%;
     right: 0;
     width: 30%;
@@ -27,13 +28,19 @@ body {
     position: absolute;
     background-color: #1588e7;
     z-index: 1;
-    display: flex;
+    display: none;
     justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+#cart.active {
+    display: flex;
 }
 
 #ct>span {
     color: white;
-    font-size: 20px;
+    font-size: 40px;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -122,6 +129,17 @@ body {
 
 .card-btn:hover {
     background: #efefef;
+}
+
+.cart-item-img {
+    margin-bottom: 20px;
+    display: flex;
+    margin-top: 30px;
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .product-info {
